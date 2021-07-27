@@ -1,4 +1,4 @@
-<!-- © 2020 Udrescu Alexandru All Rights Reserved -->
+<!-- © 2021 Udrescu Alexandru All Rights Reserved -->
 
 <?php
     //error_reporting(0);
@@ -73,8 +73,8 @@
 <body onload="resize_page()" onresize="resize_page()">
 
     <div id="app">
-        <div class="w3-sidebar w3-animate-left hide-scroll" id="side_bar" style="min-width:230px;">
-            <div class="w3-bar" style="border-bottom:5px solid #aeb4b8;">
+        <div class="w3-sidebar w3-animate-left hide-scroll" id="side_bar" style="min-width:230px;background-image:url(poze/bg_list.png)">
+            <div class="w3-bar" style="border-bottom:5px solid #aeb4b8;background:rgb(255,255,255) !important">
                 <button onclick="close_nav()" class="w3-bar-item w3-left w3-margin buton_custom animate__animated animate__bounceInLeft" style="border-radius : 10px;" title="close Sidebar"><i class="far fa-times-circle"></i></button>
                 <span class="w3-bar-item w3-margin animate__animated animate__bounceInDown"><center>Clasele tale</center></span>
             </div>
