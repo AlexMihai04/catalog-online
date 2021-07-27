@@ -2,18 +2,18 @@
 • Se downloadeaza tot de pe acest git;<br>
 • Se pune pe un apache server;<br>
 • Se importa unul dintre sql-urile oferite de mine in baza dvs de date : <br>
-    => db_cu_date.sql contine o multitudine de clase si elevi gata introdusi , este o varianta mai buna de testare a platformei;<br>
-    => db_fara_date.sql este o baza de date goala , menita inceputului , nu exista clase sau elevi introdusi , doar un cont de admin care are userul si parola:<br>
-        <b>->Username : admin</b><br>
-        <b>->Parola : info_edu</b><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp=> db_cu_date.sql contine o multitudine de clase si elevi gata introdusi , este o varianta mai buna de testare a platformei;<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp=> db_fara_date.sql este o baza de date goala , menita inceputului , nu exista clase sau elevi introdusi , doar un cont de admin care are userul si parola:<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>->Username : admin</b><br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>->Parola : info_edu</b><br>
 • Se seteaza in cfg/cfg.js domeniul COMPLET , unde a fost pusa platforma;<br>
 • Se seteaza in cfg/cfg.php informatiile de la baza de date;<br>
 • Gata<br>
 
-<h1><b>Tutorial folosire</b><h1><br>
+<h1><b>Tutorial folosire</b></h1><br>
 • Platforma este impartita in doua mari pagini : <br>
-  =>Pagina elevi/parinti/profesori;<br>
-  =>Pagina admin;<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp=>Pagina elevi/parinti/profesori;<br>
+&nbsp&nbsp&nbsp&nbsp&nbsp=>Pagina admin;<br>
 • By default , user-ul o sa fie intampinat de pagina de elevi/parinti/profesori , indiferent de grad-ul acestuia ( elev/prof/admin );<br>
 • Un user care are grad-ul de admin regaseste in partea dreapta sus o rotita prin intermediul careia poate intra pe pagina de administratie;<br>
 • Pentru a adauga admin unui user , trebuie cautat id-ul acestuia in baza de date in tabelul <b>"lista_conturi"</b> si modificat la sectiunea <b>"grad"</b> din <b>"elev/prof"</b> in <b>"admin"</b>;<br>
