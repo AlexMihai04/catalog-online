@@ -54,7 +54,8 @@
 
     <style>
         body,html {
-            height: 100%
+            height: 100%;
+            background-image:url(poze/bg_list.png);
         }
     </style>
 </head>
