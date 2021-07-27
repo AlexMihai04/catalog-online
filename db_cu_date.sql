@@ -136,7 +136,7 @@ CREATE TABLE `lista_conturi` (
 --
 
 INSERT INTO `lista_conturi` (`user_id`, `username`, `parola`, `grad`, `last_name`, `first_name`, `email`, `scoala`, `judet`, `date`) VALUES
-(1, 'admin', '$2y$10$93DytauF4nT.ubLcBj3he.JmgU7P1Yy/HcEFkteCG4pFF6FEtfDaK', 'admin', 'Admin', 'Cont', '', 'Colegiul National Pedagogic \"Regina Maria\"', 'PRAHOVA', NULL),
+(1, 'admin', '$2y$10$Dy.OA5RXnbMGpYv6yO21mODDDjs7nRNWO6FxHaJM00rGZusxvn0W2', 'admin', 'Admin', 'Cont', '', 'Colegiul National Pedagogic \"Regina Maria\"', 'PRAHOVA', NULL),
 (1634, 'ADAM_MEDEEA_ANA_MARIA', '$2y$10$3zuJm74PAu9dpsypSWlOt.gUOxWg61dQkQuhDYsFLbW5QO0dTtqNa', NULL, 'Medeea Ana Maria', 'Adam', 'adam.medeea.ana.maria@pedagogic.ro', 'Colegiul National Pedagogic \"Regina Maria\"', 'PRAHOVA', NULL),
 (1635, 'DANIELA_IONESCU', '$2y$10$G7KXnZHnOdMyiCtwrN9.AuxqabgkCE.HTTDjMPRRyco0Bj8aCb5YK', 'prof', 'Ionescu', 'Daniela', 'daniela@pedagogic.ro', 'Colegiul National Pedagogic \"Regina Maria\"', 'PRAHOVA', NULL),
 (1636, 'DANIELA_IONESCU_30', '$2y$10$G7KXnZHnOdMyiCtwrN9.AuxqabgkCE.HTTDjMPRRyco0Bj8aCb5YK', 'prof', 'Ionescu', 'Daniela', 'daniela.ionescu@pedagogic.ro', 'Colegiul National Pedagogic \"Regina Maria\"', 'PRAHOVA', NULL),
