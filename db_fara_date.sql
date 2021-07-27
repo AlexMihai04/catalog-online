@@ -73,7 +73,7 @@ CREATE TABLE `lista_conturi` (
 --
 
 INSERT INTO `lista_conturi` (`user_id`, `username`, `parola`, `grad`, `last_name`, `first_name`, `email`, `scoala`, `judet`, `date`) VALUES
-(1, 'admin', '$2y$10$93DytauF4nT.ubLcBj3he.JmgU7P1Yy/HcEFkteCG4pFF6FEtfDaK', 'admin', 'Admin', 'Cont', '', 'Colegiul National Pedagogic \"Regina Maria\"', 'PRAHOVA', NULL);
+(1, 'admin', '$2y$10$Dy.OA5RXnbMGpYv6yO21mODDDjs7nRNWO6FxHaJM00rGZusxvn0W2', 'admin', 'Admin', 'Cont', '', 'Colegiul National Pedagogic \"Regina Maria\"', 'PRAHOVA', NULL);
 -- --------------------------------------------------------
 
 --
