@@ -196,7 +196,7 @@
                                                 <?php 
                                                     if($_SESSION["group"] == "admin"){
                                                 ?>
-                                                    <div class="w3-button w3-red w3-hide-small animate__animated animate__bounceInLeft" @click="scoate_din_cls(index)">X</div>
+                                                    <div class="w3-button w3-red w3-hide-small animate__animated animate__bounceInLeft" @click="deleter('scoate_din_cls',index)">X</div>
                                                 <?php
                                                     }
                                                 ?>
@@ -211,7 +211,7 @@
                     </div>
                     <div class="w3-row w3-margin w3-animate-left" v-if="elev > -1">
                         <div class="w3-col l2 m12 s12">
-                            <div class="w3-button selected_class w3-block" @click="back_elevi();vezi_absente = false;" >Inapoi Elevi</div>
+                            <div class="w3-button selected_class w3-block" @click="elev = -1;vezi_absente = false;" >Inapoi Elevi</div>
                         </div>
                     </div>
                     <div class="w3-row w3-animate-left  w3-margin-left w3-margin-right" v-if="elev > -1 && vezi_absente == false">
@@ -227,7 +227,7 @@
                         </div>
                     </div>
                     <div class="w3-row w3-animate-left w3-margin-left w3-margin-right" v-if="elev > -1 && vezi_absente == false">
-                        <table class="w3-table w3-margin-top" style="width:auto;" v-for="(data,index) in materii" v-if="note_avute(data.id_materie)">
+                        <table class="w3-table w3-margin-top" style="width:auto;" v-for="(data,index) in materii" v-if="nabs_avut('note',data.id_materie)">
                             <tr>
                                 <th class="selected_class" style="text-transform: uppercase;background-color:#aeb4b8 !important;">{{data.nume_materie}}&nbsp</th>
                                 <th class="brd_clasa" style="text-transform: uppercase;">Medie : {{get_medie_materie(data.id_materie)}}</th>
@@ -246,7 +246,7 @@
                         <div class="w3-panel sel_rosu w3-margin" v-else>
                             <p>Tine cursor-ul peste absenta pentru a vedea data</p>
                         </div>
-                        <table class="w3-table w3-margin" style="width:auto;" v-for="(data,index) in materii" v-if="absente_avute(data.id_materie)">
+                        <table class="w3-table w3-margin" style="width:auto;" v-for="(data,index) in materii" v-if="nabs_avut('abs',data.id_materie)">
                             <tr>
                                 <th class="selected_class" style="text-transform: uppercase;">{{data.nume_materie}}&nbsp</th>
                                 <th class="tts:right" v-bind:aria-label="date.data" style="font-weight:normal;background-color:#f5f9fc" v-for="(date,i2) in absente_elev" v-if="data.id_materie == date.materie">|</th>
@@ -260,7 +260,7 @@
                     <br>
                     <div class="w3-container w3-display-container">
                         <div class="w3-row w3-margin w3-animate-left">
-                            <div class="w3-button selected_class w3-animate-left w3-margin-left" @click="cancel_add_nota()" >Renunta</div>
+                            <div class="w3-button selected_class w3-animate-left w3-margin-left" @click="elev = -1;punere_nota = false;" >Renunta</div>
                         </div>   
                         <div class="w3-row w3-margin w3-animate-left">
                             <div class="w3-col s12 m6 l6">
@@ -284,7 +284,7 @@
                                             <input class="w3-input w3-border w3-white" name="data_primita" id="data_primita" type="date" placeholder="Data" required>
                                         </div>
                                         <div class="w3-row w3-padding">
-                                            <button type="button" class="w3-button w3-block w3-round" style="background-color:#aeb4b8;color:black;" @click="add_nota()">ADAUGA</button>
+                                            <button type="button" class="w3-button w3-block w3-round" style="background-color:#aeb4b8;color:black;" @click="adder('nota')">ADAUGA</button>
                                         </div>           
                                     </form>
                                 </div>
@@ -307,7 +307,7 @@
                                             <input class="w3-input w3-border w3-white" name="data_primita" id="data_primita" type="date" placeholder="Data" required>
                                         </div>
                                         <div class="w3-row w3-padding">
-                                            <button type="button" class="w3-button w3-block w3-round" style="background-color:#aeb4b8;color:black;" @click="add_absenta()">ADAUGA</button>
+                                            <button type="button" class="w3-button w3-block w3-round" style="background-color:#aeb4b8;color:black;" @click="adder('absenta')">ADAUGA</button>
                                         </div>           
                                     </form>
                                 </div>
