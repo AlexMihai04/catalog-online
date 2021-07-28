@@ -1,3 +1,5 @@
+![prezentare](https://user-images.githubusercontent.com/34480571/127243487-f861ba91-7213-4e34-9242-7f1125de7e44.png)
+
 <h1><b>Tutorial instalare</b></h1>
 • Se downloadeaza tot de pe acest git;<br>
 • Se pune pe un apache server;<br>
