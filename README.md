@@ -30,4 +30,15 @@
 • Conexiune SQL;<br>
 <br><br>
 
+<h1><b>Librarii folosite :</b></h1>
+• VUE.js<br>
+• W3.css<br>
+• JQuery<br>
+• FontAwesome<br>
+• O librarie pentru tooltips<br>
+• iziToast<br>
+• AOS<br>
+• Animate.css<br>
+
+
 Preview : http://alex-mihai.ro/catalog<br>
