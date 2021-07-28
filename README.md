@@ -40,5 +40,5 @@
 • AOS<br>
 • Animate.css<br>
 
-
+<br><br>
 Preview : http://alex-mihai.ro/catalog<br>
