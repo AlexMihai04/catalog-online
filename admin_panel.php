@@ -114,8 +114,8 @@
                     <a class="w3-button selected_class w3-margin-bottom w3-hide-small w3-block" @click="show = 'lista_all_elevi';get_all_el()">Sterge conturi</a>
                     <a class="w3-button selected_class w3-margin-bottom w3-block" @click="show = 'add_clasa'">Creeaza clasa</a>
                     <a class="w3-button selected_class w3-margin-bottom w3-hide-small w3-block" @click="show = 'sterge_clasa'">Sterge clasa</a>
-                    <a class="w3-button selected_class w3-margin-bottom w3-hide-small w3-block" @click="show = 'lista_elevin';get_el_not()">Adauga elev in clasa</a>
-                    <a class="w3-button selected_class w3-margin-bottom w3-block" @click="show = 'lista_loguri';get_loguri()">Istoric actiuni</a>
+                    <a class="w3-button selected_class w3-margin-bottom w3-hide-small w3-block" @click="show = 'lista_elevin';getter('el_not')">Adauga elev in clasa</a>
+                    <a class="w3-button selected_class w3-margin-bottom w3-block" @click="show = 'lista_loguri';getter('loguri')">Istoric actiuni</a>
                 </div>
                 <div class="w3-row w3-margin" v-if="show == 'add_cont'">
                     <div class="w3-card-4 selected_class w3-round w3-col s12 l12 m12 w3-animate-left">
@@ -156,7 +156,7 @@
                                 </select>
                             </div>
                             <div class="w3-row w3-padding">
-                                <button type="button" class="w3-button w3-block w3-round" style="background-color:#aeb4b8;color:black;" @click="add_cont_js()">ADAUGA</button>
+                                <button type="button" class="w3-button w3-block w3-round" style="background-color:#aeb4b8;color:black;" @click="adder('add_cont')">ADAUGA</button>
                             </div>           
                         </form>
                     </div>
@@ -177,7 +177,7 @@
                                 </div>
                             </div>
                             <div class="w3-row w3-padding">
-                                <button type="button" class="w3-button w3-block w3-round" style="background-color:#aeb4b8;color:black;" @click="add_clasa_js()">ADAUGA</button>
+                                <button type="button" class="w3-button w3-block w3-round" style="background-color:#aeb4b8;color:black;" @click="adder('add_clasa')">ADAUGA</button>
                             </div>           
                         </form>
                     </div>
@@ -197,7 +197,7 @@
                                 <tr style="border-left:5px solid green !important;">
                                     <td>{{data}}</td>
                                     <td class="w3-right">
-                                        <div class="w3-button selected_class" @click="delete_clasa(index)">Sterge clasa</div>
+                                        <div class="w3-button selected_class" @click="deleter(index,'clasa')">Sterge clasa</div>
                                     </td>
                                 </tr>
                             </template>
@@ -228,7 +228,7 @@
                                     <td v-if="data.grad == 'elev'"><div class="w3-tag w3-brown">Elev</div></td>
                                     <td>{{data.first_name}} {{data.last_name}}</td>
                                     <td class="w3-right">
-                                        <div class="selected_class w3-button" v-bind:id="index" @click = "add_inclasa(index,$event);">Adauga in clasa</div>
+                                        <div class="selected_class w3-button" v-bind:id="index" @click = "adder('add_in_clasa',index,$event);">Adauga in clasa</div>
                                     </td>
                                 </tr>
                             </template>
@@ -253,7 +253,7 @@
                                     <td v-if="data.grad == 'elev'"><div class="w3-tag w3-brown">Elev</div></td>
                                     <td>{{data.first_name}} {{data.last_name}}</td>
                                     <td class="w3-right">
-                                        <div class="w3-button selected_class" @click="delete_cont(index)">Sterge cont</div>
+                                        <div class="w3-button selected_class" @click="deleter(index,'cont')">Sterge cont</div>
                                     </td>
                                 </tr>
                             </template>
