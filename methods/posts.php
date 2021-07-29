@@ -23,10 +23,44 @@
             if(isset($_POST["om_selectat"]) and isset($_POST["materie"]) and preg_match("^[0-9]{2}-[0-9]{2}-[0-9]{1,4}$^",$_POST["data_primita"]) and preg_match("^[0-9]{1,5}$^",$_POST["om_selectat"]) and !preg_match("^[a-zA-Z]{3,20}$^",$_POST["materie"])){
                 add_absenta($conn,$_POST["om_selectat"],$_POST["materie"],$_POST["data_primita"]);
                 add_log($conn,$_SESSION["user_id"]." i-a pus absenta lui : ".$_POST["om_selectat"],$_POST["data_primita"]);
-    
+
+                $date_usr = DbReqUser_id($conn,$_POST["om_selectat"]);
+
+                $subject = "Catalog online | Absenta noua";
+                $message = '
+                <html>
+                <body style="font-family: Segoe UI,Arial,sans-serif;font-weight: 400;color:black;">
+                    <div style="margin:0 20% 0 20%;border: 5px solid #ebf2f7;border-radius: 8px;height:auto;padding : 5px;display:block;">
+                        <div style="margin : 16px;border-bottom: 5px solid #ebf2f7;">
+                            <h2> Ai primit o absenta noua !</h2>
+                        </div>
+                        <div style="margin : 16px;border-bottom: 5px solid #ebf2f7;">
+                            <h2> Detalii </h2>
+                        </div>
+                        <div style="margin : 16px;">
+                            <div style="color: #fff;display:inline-block;padding-left: 8px; padding-right: 8px;text-align: center;background-color: green;border-radius: 5px;">Detalii</div>Data : '.$_POST["data_primita"].'
+                        </div>
+                        <div style="margin : 16px;">
+                            <div style="color: #fff;display:inline-block;padding-left: 8px; padding-right: 8px;text-align: center;background-color: green;border-radius: 5px;">Detalii</div>Materia : '.$_POST["nume_materie"].'
+                        </div>
+                    </div>
+                    <div style="margin:10px 20% 0 20%;border: 5px solid #ebf2f7;border-radius: 8px;height:auto;padding : 5px;display:block;">
+                        <div style="margin : 16px;">
+                            <div style="color: #fff;display:inline-block;padding-left: 8px; padding-right: 8px;text-align: center;background-color: #F2CC8F;border-radius: 5px;">Creator</div> Platforma creata de <a href="https://www.instagram.com/_alexmihai_/">Udrescu Alexandru Mihai</a>
+                        </div>
+                    </div>
+                </body>
+                </html>
+                ';
+
+                $headers = "MIME-Version: 1.0" . "\r\n";
+                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                $headers .= 'From: <catalog-online@alex-mihai.ro>' . "\r\n";
+
+                mail($date_usr["email"], $subject, $message, $headers);
+
                 $response["response"] = 1;
                 $response["mesaj"] = "Absenta a fost adaugata cu success";
-                // echo "test";
             }else{
                 $response["mesaj"] = 'A aparut o eroare. Trebuie sa completezi toate campurile. Cod : #2'; 
             }
@@ -44,6 +78,45 @@
                 if($_POST["nota_pusa"] >= 1 and $_POST["nota_pusa"] <= 10){
                     add_nota($conn,$_POST["om_selectat"],$_POST["nota_pusa"],$_POST["materie"],$_POST["data_primita"]);
                     add_log($conn,$_SESSION["user_id"]." i-a pus nota : ".$_POST["nota_pusa"]." lui : ".$_POST["om_selectat"],$_POST["data_primita"]);
+
+                    $date_usr = DbReqUser_id($conn,$_POST["om_selectat"]);
+
+                    $subject = "Catalog online | Nota noua";
+                    $message = '
+                    <html>
+                    <body style="font-family: Segoe UI,Arial,sans-serif;font-weight: 400;color:black;">
+                        <div style="margin:0 20% 0 20%;border: 5px solid #ebf2f7;border-radius: 8px;height:auto;padding : 5px;display:block;">
+                            <div style="margin : 16px;border-bottom: 5px solid #ebf2f7;">
+                                <h2> Ai primit o nota noua !</h2>
+                            </div>
+                            <div style="margin : 16px;border-bottom: 5px solid #ebf2f7;">
+                                <h2> Detalii </h2>
+                            </div>
+                            <div style="margin : 16px;">
+                                <div style="color: #fff;display:inline-block;padding-left: 8px; padding-right: 8px;text-align: center;background-color: green;border-radius: 5px;">Detalii</div>Data : '.$_POST["data_primita"].'
+                            </div>
+                            <div style="margin : 16px;">
+                                <div style="color: #fff;display:inline-block;padding-left: 8px; padding-right: 8px;text-align: center;background-color: green;border-radius: 5px;">Detalii</div>Nota : '.$_POST["nota_pusa"].'
+                            </div>
+                            <div style="margin : 16px;">
+                                <div style="color: #fff;display:inline-block;padding-left: 8px; padding-right: 8px;text-align: center;background-color: green;border-radius: 5px;">Detalii</div>Materia : '.$_POST["nume_materie"].'
+                            </div>
+                        </div>
+                        <div style="margin:10px 20% 0 20%;border: 5px solid #ebf2f7;border-radius: 8px;height:auto;padding : 5px;display:block;">
+                            <div style="margin : 16px;">
+                                <div style="color: #fff;display:inline-block;padding-left: 8px; padding-right: 8px;text-align: center;background-color: #F2CC8F;border-radius: 5px;">Creator</div> Platforma creata de <a href="https://www.instagram.com/_alexmihai_/">Udrescu Alexandru Mihai</a>
+                            </div>
+                        </div>
+                    </body>
+                    </html>
+                    ';
+
+                    $headers = "MIME-Version: 1.0" . "\r\n";
+                    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                    $headers .= 'From: <catalog-online@alex-mihai.ro>' . "\r\n";
+
+                    mail($date_usr["email"], $subject, $message, $headers);
+
                     $response["mesaj"] = "Nota a fost adaugata cu succes !"; 
                     $response["response"] = 1;
                 }else{
