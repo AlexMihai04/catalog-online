@@ -45,6 +45,7 @@ var app = new Vue({
                         'crsf':$('#crsf').val(),
                         'om_selectat' : app.elevi[app.elev].user_id,
                         'materie' : date[0].value,
+                        'nume_materie':app.materii[date[0].value-1].nume_materie,
                         'data_primita' : date[1].value
                     },
                     success:function (data)
@@ -69,6 +70,7 @@ var app = new Vue({
                         'om_selectat' : app.elevi[app.elev].user_id,
                         'nota_pusa' : date[0].value,
                         'materie' : date[1].value,
+                        'nume_materie':app.materii[date[1].value-1].nume_materie,
                         "data_primita" : date[2].value
                     },
                     success:function (data)
