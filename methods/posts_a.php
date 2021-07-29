@@ -45,6 +45,10 @@
         $m_in = $_POST["email"];
         if(filter_var($m_in, FILTER_VALIDATE_EMAIL) and isset($_POST["grup"]) and isset($_POST["first_name"]) and isset($_POST["last_name"]) and preg_match("^[a-zA-Z0-9]{1,40}$^",$_POST["first_name"]) and preg_match("^[a-zA-Z0-9]{1,40}$^",$_POST["last_name"]) and preg_match("^[a-zA-Z]{1,10}$^",$_POST["grup"])){
             $u_in = preg_replace('/\s+/', '_', $_POST["first_name"]." ".$_POST["last_name"]);
+            $test_ex = DbReqUser($conn,$u_in);
+            if($test_ex){
+                $u_in = $u_in.rand(1000,9999);
+            }
             $p_in = strtolower(preg_replace('/\s+/', '_', $_POST["first_name"]." ".$_POST["last_name"]))."_".rand(1000,9999);
             add_log($conn,$_SESSION["user_id"]." a creat contul cu numele : ".$u_in,date("d-m-Y"));
             create_cont($conn,$u_in,$p_in,$g_in,$f_in,$l_in,$m_in);
